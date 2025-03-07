@@ -1,11 +1,23 @@
 package com.example.pedidosApp.modelos;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tienda_tabla")
+
 public class Tienda {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_tienda")
     private Integer id;
+    @Column(name = "nombre", length = 100, unique = true, nullable = false)
     private String nombre;
+    @Column(name = "direccion", length = 254, unique = true, nullable = false)
     private String direccion;
+    @Column(name = "telefono", length = 20, unique = true, nullable = true)
     private String telefono;
+    @Column()
     private String categoria;
 
     public Tienda() {

@@ -1,11 +1,23 @@
 package com.example.pedidosApp.modelos;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "repartidor_tabla")
+
 public class Repartidor {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_repartidor")
     private Integer id;
+    @Column(name = "nombre", length = 100, unique = true, nullable = false)
     private String nombre;
+    @Column(name = "telefono", length = 20, unique = true, nullable = false)
     private String telefono;
+    @Column(name = "correoEletronico", length = 150, unique = true, nullable = false)
     private String correoEletronico;
+    @Column(name = "vehiculo", length = 50, unique = true, nullable = false)
     private String vehiculo;
 
     public Repartidor() {

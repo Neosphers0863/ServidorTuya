@@ -1,9 +1,19 @@
 package com.example.pedidosApp.modelos;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "detalle_tabla")
+
 public class Detalle {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_detalle")
     private Integer id;
+    @Column(name = "cantidad", unique = true, nullable = false)
     private int cantidad;
+    @Column(name = "subtotal", precision = 10, scale = 2, unique = true, nullable = false)
     private double subTotal;
 
     public Detalle() {

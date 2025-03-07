@@ -4,5 +4,5 @@ public enum EntregaEnum {
 
     ASIGNADO,
     EN_CAMINO,
-    ENTREGADO
+    ENTREGADO,
 }

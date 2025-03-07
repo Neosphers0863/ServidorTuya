@@ -14,9 +14,14 @@ public class Usuario {
     private Integer id;
     @Column(name = "nombre", length = 100, unique = true, nullable = false)
     private String nombre;
+    @Column(name = "correoEletronico", length = 150, unique = true, nullable = false)
     private String correoEletronico;
+    @Column(name = "contrasena", length = 254, unique = true, nullable = false)
     private String contrasena;
+    @Column(name = "telefono", length = 20, unique = true, nullable = true)
     private String telefono;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_usuario", nullable = false)
     private UsuarioEnum tipoUsuario;
 
     public Usuario() {

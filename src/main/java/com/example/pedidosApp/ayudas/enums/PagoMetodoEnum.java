@@ -1,6 +1,6 @@
 package com.example.pedidosApp.ayudas.enums;
 
-public enum MetodoPagoEnum {
+public enum PagoMetodoEnum {
 
     TARJETA,
     EFECTIVO,

@@ -1,11 +1,22 @@
 package com.example.pedidosApp.modelos;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "direccion_tabla")
 public class Direccion {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_direccion")
     private Integer id;
+    @Column(name = "calle", length = 254, unique = true, nullable = false)
     private String calle;
+    @Column(name = "ciudad", length = 100, unique = true, nullable = false)
     private String ciudad;
+    @Column(name = "codigoPostal", length = 20, unique = true, nullable = true)
     private String codigoPostal;
+    @Column(name = "pais", length = 50, unique = true, nullable = false)
     private String pais;
 
     public Direccion() {

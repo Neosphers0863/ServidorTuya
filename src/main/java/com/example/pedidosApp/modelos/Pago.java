@@ -1,18 +1,29 @@
 package com.example.pedidosApp.modelos;
 
+import com.example.pedidosApp.ayudas.enums.PagoEstadoEnum;
+import com.example.pedidosApp.ayudas.enums.PagoMetodoEnum;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "pago_tabla")
 public class Pago {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_pago")
     private Integer id;
+    @Column(name = "fechaPago", nullable = false, updatable = false)
     private LocalDate fechaPago;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "metododepago", nullable = false)
+    private PagoMetodoEnum metododepago;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "estado", nullable = false)
+    private PagoEstadoEnum estado;
 
     public Pago() {
-    }
-
-    public Pago(Integer id, LocalDate fechaPago) {
-        this.id = id;
-        this.fechaPago = fechaPago;
     }
 
     public Integer getId() {
@@ -31,4 +42,19 @@ public class Pago {
         this.fechaPago = fechaPago;
     }
 
+    public PagoMetodoEnum getMetododepago() {
+        return metododepago;
+    }
+
+    public void setMetododepago(PagoMetodoEnum metododepago) {
+        this.metododepago = metododepago;
+    }
+
+    public PagoEstadoEnum getEstado() {
+        return estado;
+    }
+
+    public void setEstado(PagoEstadoEnum estado) {
+        this.estado = estado;
+    }
 }
