@@ -1,6 +1,10 @@
 package com.example.pedidosApp.modelos;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+
+import javax.sound.sampled.Line;
+import java.util.List;
 
 @Entity
 @Table(name = "direccion_tabla")
@@ -18,6 +22,11 @@ public class Direccion {
     private String codigoPostal;
     @Column(name = "pais", length = 50, unique = true, nullable = false)
     private String pais;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_usuario", referencedColumnName = "id_usuario")
+    @JsonBackReference
+    private Usuario usuarios;
 
     public Direccion() {
     }

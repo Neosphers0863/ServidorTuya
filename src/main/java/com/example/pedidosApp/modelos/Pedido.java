@@ -1,6 +1,7 @@
 package com.example.pedidosApp.modelos;
 
 import com.example.pedidosApp.ayudas.enums.PedidoEnum;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -23,6 +24,11 @@ public class Pedido {
     @Enumerated(EnumType.STRING)
     @Column(name = "estado", nullable = false)
     private PedidoEnum estado;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_usuario", referencedColumnName = "id_usuario")
+    @JsonManagedReference
+    private Usuario usuarios;
 
     public Pedido() {
     }
