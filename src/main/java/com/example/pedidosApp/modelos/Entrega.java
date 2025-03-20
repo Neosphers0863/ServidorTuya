@@ -2,6 +2,7 @@ package com.example.pedidosApp.modelos;
 
 import com.example.pedidosApp.ayudas.enums.EntregaEnum;
 import com.example.pedidosApp.ayudas.enums.PagoEstadoEnum;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -19,6 +20,11 @@ public class Entrega {
     @Enumerated(EnumType.STRING)
     @Column(name = "estadoEntrega", nullable = false)
     private EntregaEnum estadoEntrega;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_repartidor",referencedColumnName = "id_repartidor")
+    @JsonManagedReference
+    private Repartidor repartidores;
 
     public Entrega() {
     }

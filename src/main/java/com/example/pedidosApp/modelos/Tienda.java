@@ -1,6 +1,9 @@
 package com.example.pedidosApp.modelos;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tienda_tabla")
@@ -17,8 +20,16 @@ public class Tienda {
     private String direccion;
     @Column(name = "telefono", length = 20, unique = true, nullable = true)
     private String telefono;
-    @Column()
+    @Column(name = "categoria",length = 50, unique = true,nullable = true)
     private String categoria;
+
+    @OneToMany(mappedBy = "Tienda")
+    @JsonManagedReference
+    private List<Producto> productos;
+
+    @OneToMany(mappedBy = "Tienda")
+    @JsonManagedReference
+    private List<Pedido> pedidos;
 
     public Tienda() {
     }

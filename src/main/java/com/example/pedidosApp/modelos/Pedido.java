@@ -30,6 +30,21 @@ public class Pedido {
     @JsonManagedReference
     private Usuario usuarios;
 
+    @ManyToOne
+    @JoinColumn(name = "fk_pago", referencedColumnName = "id_pago")
+    @JsonManagedReference
+    private Pago pagos;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_tienda", referencedColumnName = "id_tienda")
+    @JsonManagedReference
+    private Tienda tiendas;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_detalle", referencedColumnName = "id_detalle")
+    @JsonManagedReference
+    private Detalle detalles;
+
     public Pedido() {
     }
 

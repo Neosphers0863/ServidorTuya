@@ -2,9 +2,11 @@ package com.example.pedidosApp.modelos;
 
 import com.example.pedidosApp.ayudas.enums.PagoEstadoEnum;
 import com.example.pedidosApp.ayudas.enums.PagoMetodoEnum;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "pago_tabla")
@@ -22,6 +24,10 @@ public class Pago {
     @Enumerated(EnumType.STRING)
     @Column(name = "estado", nullable = false)
     private PagoEstadoEnum estado;
+
+    @OneToMany(mappedBy = "pago")
+    @JsonManagedReference
+    private List<Pedido> pedidos;
 
     public Pago() {
     }

@@ -1,6 +1,9 @@
 package com.example.pedidosApp.modelos;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "producto_tabla")
@@ -18,6 +21,16 @@ public class Producto {
     @Column(name = "descripcion", nullable = true)
     @Lob
     private String descripcion;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_tienda", referencedColumnName = "id_tienda")
+    @JsonManagedReference
+    private Tienda tiendas;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_detalle", referencedColumnName = "id_detalle")
+    @JsonManagedReference
+    private Detalle detalles;
 
     public Producto() {
     }
