@@ -29,7 +29,7 @@ public class UsuarioServicio {
     }
 
     // Buscar todos los registros
-    public List<Usuario> buscarTodosUsuarios() throws Exception{
+    public List<Usuario> buscarUsuarios() throws Exception{
         try{
 
             return this.repositorio.findAll();
@@ -58,7 +58,6 @@ public class UsuarioServicio {
     }
 
     // Modificar por ID
-
     public Usuario modificarUsuario(Integer id, Usuario datosUsurio) throws Exception{
         try{
 
@@ -76,7 +75,6 @@ public class UsuarioServicio {
     }
 
     // Eliminar por ID
-
     public boolean eliminarUsuario(Integer id) throws Exception{
         try{
 
