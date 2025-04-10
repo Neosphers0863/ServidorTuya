@@ -2,6 +2,7 @@ package com.example.pedidosApp.modelos;
 
 import com.example.pedidosApp.ayudas.enums.EntregaEnum;
 import com.example.pedidosApp.ayudas.enums.PagoEstadoEnum;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -23,8 +24,8 @@ public class Entrega {
 
     @ManyToOne
     @JoinColumn(name = "fk_repartidor",referencedColumnName = "id_repartidor")
-    @JsonManagedReference
-    private Repartidor repartidores;
+    @JsonBackReference
+    private Repartidor repartidor;
 
     public Entrega() {
     }

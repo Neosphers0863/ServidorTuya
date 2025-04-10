@@ -16,16 +16,16 @@ public class Detalle {
     private Integer id;
     @Column(name = "cantidad", unique = true, nullable = false)
     private int cantidad;
-    @Column(name = "subtotal", precision = 10, scale = 2, unique = true, nullable = false)
+    @Column(name = "subtotal", unique = true, nullable = false)
     private double subTotal;
 
     @OneToMany(mappedBy = "detalle")
     @JsonManagedReference
-    private List<Pedido> pedidos;
+    private List<Pedido> pedido;
 
     @OneToMany(mappedBy = "detalle")
     @JsonManagedReference
-    private List<Producto> productos;
+    private List<Producto> producto;
 
     public Detalle() {
     }

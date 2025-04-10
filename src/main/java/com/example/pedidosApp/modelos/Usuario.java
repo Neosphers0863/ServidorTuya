@@ -29,11 +29,11 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario")
     @JsonManagedReference
-    private List<Direccion> direcciones;
+    private List<Direccion> direccion;
 
     @OneToMany(mappedBy = "usuario")
     @JsonManagedReference
-    private List<Pedido> pedidos;
+    private List<Pedido> pedido;
 
     public Usuario() {
     }

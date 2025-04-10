@@ -1,6 +1,7 @@
 package com.example.pedidosApp.modelos;
 
 import com.example.pedidosApp.ayudas.enums.PedidoEnum;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -19,7 +20,7 @@ public class Pedido {
     private Integer id;
     @Column(name = "fechapedido", nullable = false, updatable = false)
     private LocalDate fechapedido;
-    @Column(name = "total", precision = 10, scale = 2, unique = true, nullable = false)
+    @Column(name = "total", unique = true, nullable = false)
     private double total;
     @Enumerated(EnumType.STRING)
     @Column(name = "estado", nullable = false)
@@ -28,22 +29,22 @@ public class Pedido {
     @ManyToOne
     @JoinColumn(name = "fk_usuario", referencedColumnName = "id_usuario")
     @JsonManagedReference
-    private Usuario usuarios;
+    private Usuario usuario;
 
     @ManyToOne
     @JoinColumn(name = "fk_pago", referencedColumnName = "id_pago")
-    @JsonManagedReference
-    private Pago pagos;
+    @JsonBackReference
+    private Pago pago;
 
     @ManyToOne
     @JoinColumn(name = "fk_tienda", referencedColumnName = "id_tienda")
-    @JsonManagedReference
-    private Tienda tiendas;
+    @JsonBackReference
+    private Tienda tienda;
 
     @ManyToOne
     @JoinColumn(name = "fk_detalle", referencedColumnName = "id_detalle")
-    @JsonManagedReference
-    private Detalle detalles;
+    @JsonBackReference
+    private Detalle detalle;
 
     public Pedido() {
     }

@@ -1,8 +1,10 @@
 package com.example.pedidosApp.modelos;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -16,7 +18,7 @@ public class Producto {
     private Integer id;
     @Column(name = "nombre", length = 100, unique = false, nullable = false)
     private String nombre;
-    @Column(name = "precio", precision = 10, scale = 2, unique = false, nullable = false)
+    @Column(name = "precio", unique = false, nullable = false)
     private double precio;
     @Column(name = "descripcion", nullable = true)
     @Lob
@@ -24,13 +26,13 @@ public class Producto {
 
     @ManyToOne
     @JoinColumn(name = "fk_tienda", referencedColumnName = "id_tienda")
-    @JsonManagedReference
-    private Tienda tiendas;
+    @JsonBackReference
+    private Tienda tienda;
 
     @ManyToOne
     @JoinColumn(name = "fk_detalle", referencedColumnName = "id_detalle")
-    @JsonManagedReference
-    private Detalle detalles;
+    @JsonBackReference
+    private Detalle detalle;
 
     public Producto() {
     }

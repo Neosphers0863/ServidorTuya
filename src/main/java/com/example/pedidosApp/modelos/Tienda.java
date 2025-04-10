@@ -23,13 +23,13 @@ public class Tienda {
     @Column(name = "categoria",length = 50, unique = true,nullable = true)
     private String categoria;
 
-    @OneToMany(mappedBy = "Tienda")
+    @OneToMany(mappedBy = "tienda")
     @JsonManagedReference
-    private List<Producto> productos;
+    private List<Producto> producto;
 
-    @OneToMany(mappedBy = "Tienda")
+    @OneToMany(mappedBy = "tienda")
     @JsonManagedReference
-    private List<Pedido> pedidos;
+    private List<Pedido> pedido;
 
     public Tienda() {
     }

@@ -25,7 +25,7 @@ public class Repartidor {
 
     @OneToMany(mappedBy = "repartidor")
     @JsonManagedReference
-    private List<Entrega> entregas;
+    private List<Entrega> entrega;
 
     public Repartidor() {
     }
