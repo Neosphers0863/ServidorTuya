@@ -26,7 +26,7 @@ public class Pago {
     private PagoEstadoEnum estado;
 
     @OneToMany(mappedBy = "pago")
-    @JsonManagedReference
+    @JsonManagedReference (value = "pedido-pago")
     private List<Pedido> pedido;
 
     public Pago() {

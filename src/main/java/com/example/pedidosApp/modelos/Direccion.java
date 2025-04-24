@@ -25,7 +25,7 @@ public class Direccion {
 
     @ManyToOne
     @JoinColumn(name = "fk_usuario", referencedColumnName = "id_usuario")
-    @JsonBackReference
+    @JsonBackReference (value = "direccion-usuario")
     private Usuario usuario;
 
     public Direccion() {

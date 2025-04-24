@@ -28,22 +28,22 @@ public class Pedido {
 
     @ManyToOne
     @JoinColumn(name = "fk_usuario", referencedColumnName = "id_usuario")
-    @JsonManagedReference
+    @JsonBackReference (value = "pedido-usuario")
     private Usuario usuario;
 
     @ManyToOne
     @JoinColumn(name = "fk_pago", referencedColumnName = "id_pago")
-    @JsonBackReference
+    @JsonBackReference (value = "pedido-pago")
     private Pago pago;
 
     @ManyToOne
     @JoinColumn(name = "fk_tienda", referencedColumnName = "id_tienda")
-    @JsonBackReference
+    @JsonBackReference (value = "tienda-pedido")
     private Tienda tienda;
 
     @ManyToOne
     @JoinColumn(name = "fk_detalle", referencedColumnName = "id_detalle")
-    @JsonBackReference
+    @JsonBackReference (value = "pedido-detalle")
     private Detalle detalle;
 
     public Pedido() {

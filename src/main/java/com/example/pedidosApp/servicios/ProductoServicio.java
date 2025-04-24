@@ -29,7 +29,7 @@ public class ProductoServicio {
     }
 
     // Buscar todos los registros
-    public List<Producto> buscarProducto() throws Exception{
+    public List<Producto> buscarProductos() throws Exception{
         try{
 
             return this.repositorio.findAll();

@@ -24,7 +24,7 @@ public class Entrega {
 
     @ManyToOne
     @JoinColumn(name = "fk_repartidor",referencedColumnName = "id_repartidor")
-    @JsonBackReference
+    @JsonBackReference (value = "entrega-repartidor")
     private Repartidor repartidor;
 
     public Entrega() {

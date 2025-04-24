@@ -20,11 +20,11 @@ public class Detalle {
     private double subTotal;
 
     @OneToMany(mappedBy = "detalle")
-    @JsonManagedReference
+    @JsonManagedReference (value = "pedido-detalle")
     private List<Pedido> pedido;
 
     @OneToMany(mappedBy = "detalle")
-    @JsonManagedReference
+    @JsonManagedReference (value = "producto-detalle")
     private List<Producto> producto;
 
     public Detalle() {

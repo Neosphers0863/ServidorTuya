@@ -15,7 +15,6 @@ public class ControladorUsuario {
     UsuarioServicio usuarioServicio;
 
     //Guardar
-
     @PostMapping
     public ResponseEntity<?>guardar(@RequestBody Usuario datosPeticion){
         try{
@@ -31,7 +30,6 @@ public class ControladorUsuario {
     }
 
     //Buscar Todos
-
     @GetMapping
     public ResponseEntity<?>buscarTodo(){
         try {
@@ -47,7 +45,6 @@ public class ControladorUsuario {
     }
 
     //Buscar ID
-
     @GetMapping("/{id}")
     public ResponseEntity<?>buscarID(@PathVariable Integer id){
         try {
@@ -62,7 +59,6 @@ public class ControladorUsuario {
     }
 
     //Modificar
-
     @PutMapping("/{id}")
     public ResponseEntity<?> modificar(@PathVariable Integer id, @RequestBody Usuario datos){
          try {
@@ -79,8 +75,7 @@ public class ControladorUsuario {
 
 
     //Eliminar
-
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Integer id){
         try {
             return ResponseEntity
